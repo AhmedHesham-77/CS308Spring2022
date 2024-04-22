@@ -47,9 +47,9 @@ public class HrApp {
 
 
     //Country table
-    public static void getAllCountries() {
+    public static List<COUNTRIES> getAllCountries() {
         List<COUNTRIES> co = dbcountries.get();
-        for (COUNTRIES i : co) System.out.println(i);
+        return co;
     }
 
     public static void getCountry(String id) {
@@ -149,9 +149,9 @@ public class HrApp {
     }
 
     //    Locations table
-    public static void getAllLoc() {
+    public static List<Locations> getAllLoc() {
         List<Locations> co = dblocations.get();
-        for (Locations i : co) System.out.println(i);
+        return co;
     }
 
     public static void getLoc(Integer id) {
@@ -216,7 +216,7 @@ public class HrApp {
             System.out.println(i.getEmployee());
         }
 
-        System.out.println("Test Employee Manager relation");
+        System.out.println("Test Employee Jobs relation");
         System.out.println("----------------------------------------------------------------------------");
         List<Jobs> emp_job = getAllJobs();
         for (Jobs i : emp_job) {
@@ -230,6 +230,30 @@ public class HrApp {
         for (Regions i : country_region) {
             System.out.println(i.getRegion_Id());
             System.out.println(i.getCountries());
+        }
+
+        System.out.println("Test countries Location relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<COUNTRIES> country_location = getAllCountries();
+        for (COUNTRIES i : country_location) {
+            System.out.println(i.getCOUNTRY_ID());
+            System.out.println(i.getLacations());
+        }
+
+        System.out.println("Test location department relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Locations> location_department = getAllLoc();
+        for (Locations i : location_department) {
+            System.out.println(i.getLocation_id());
+            System.out.println(i.getDepartments());
+        }
+
+        System.out.println("Test department employee relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Departments> department_employee = getAllDep();
+        for (Departments i : department_employee) {
+            System.out.println(i.getMANAGER_ID());
+            System.out.println(i.getEmployee());
         }
 
 

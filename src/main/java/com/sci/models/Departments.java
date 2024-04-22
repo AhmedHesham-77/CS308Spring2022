@@ -37,4 +37,8 @@ public class Departments implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id", insertable = false, updatable = false)
     private List<Employee> employee;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_id", insertable = false, updatable = false)
+    private List<Employee> mangers;
 }
