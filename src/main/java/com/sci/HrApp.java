@@ -239,7 +239,7 @@ public class HrApp {
         d.setMANAGER_ID(500);
         update_dep(d);
         System.out.println("---------------------------------------");
-        delete_dep(d.getDEPARTMENT_ID());
+//        delete_dep(d.getDEPARTMENT_ID());
         System.out.println("---------------------------------------");
 
         System.out.println("---------------------------------------");
