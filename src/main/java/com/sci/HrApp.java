@@ -200,84 +200,94 @@ public class HrApp {
 
     public static void main(String[] args) {
 
-//        System.out.println("Test Employee Manager relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Employee> list = getAllEmployees();
-//        for (Employee i : list) {
-//            System.out.println(i.getManagerId());
-//            System.out.println(i.getEmployee());
-//        }
-//
-//        System.out.println("Test Employee Department relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Departments> emp_dep = getAllDep();
-//        for (Departments i : emp_dep) {
-//            System.out.println(i.getDEPARTMENT_ID());
-//            System.out.println(i.getEmployee());
-//        }
-//
-//        System.out.println("Test Employee Jobs relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Jobs> emp_job = getAllJobs();
-//        for (Jobs i : emp_job) {
-//            System.out.println(i.getJOB_ID());
-//            System.out.println(i.getEmployees());
-//        }
-//
-//        System.out.println("Test Region countries relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Regions> country_region = getAllRegions();
-//        for (Regions i : country_region) {
-//            System.out.println(i.getRegion_Id());
-//            System.out.println(i.getCountries());
-//        }
-//
-//        System.out.println("Test countries Location relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<COUNTRIES> country_location = getAllCountries();
-//        for (COUNTRIES i : country_location) {
-//            System.out.println(i.getCOUNTRY_ID());
-//            System.out.println(i.getLacations());
-//        }
-//
-//        System.out.println("Test location department relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Locations> location_department = getAllLoc();
-//        for (Locations i : location_department) {
-//            System.out.println(i.getLocation_id());
-//            System.out.println(i.getDepartments());
-//        }
-//
-//        System.out.println("Test department employee relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Departments> department_employee = getAllDep();
-//        for (Departments i : department_employee) {
-//            System.out.println(i.getMANAGER_ID());
-//            System.out.println(i.getEmployee());
-//        }
-//
-//        System.out.println("Test job job_history relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Jobs> job_jobHistory = getAllJobs();
-//        for (Jobs i : job_jobHistory) {
-//            System.out.println(i.getJOB_ID());
-//            System.out.println(i.getHistories());
-//        }
-//
-//        System.out.println("Test department job_history relation");
-//        System.out.println("----------------------------------------------------------------------------");
-//        List<Departments> department_jobHistory = getAllDep();
-//        for (Departments i : department_jobHistory) {
-//            System.out.println(i.getDEPARTMENT_ID());
-//            System.out.println(i.getHistories());
-//        }
+        System.out.println("Test Employee Manager relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Employee> list = getAllEmployees();
+        for (Employee i : list) {
+            System.out.println(i.getManagerId());
+            System.out.println(i.getEmployee());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test Employee Department relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Departments> emp_dep = getAllDep();
+        for (Departments i : emp_dep) {
+            System.out.println(i.getDEPARTMENT_ID());
+            System.out.println(i.getEmployee());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test Employee Jobs relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Jobs> emp_job = getAllJobs();
+        for (Jobs i : emp_job) {
+            System.out.println(i.getJOB_ID());
+            System.out.println(i.getEmployees());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test Region countries relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Regions> country_region = getAllRegions();
+        for (Regions i : country_region) {
+            System.out.println(i.getRegion_Id());
+            System.out.println(i.getCountries());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test countries Location relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<COUNTRIES> country_location = getAllCountries();
+        for (COUNTRIES i : country_location) {
+            System.out.println(i.getCOUNTRY_ID());
+            System.out.println(i.getLacations());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test location department relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Locations> location_department = getAllLoc();
+        for (Locations i : location_department) {
+            System.out.println(i.getLocation_id());
+            System.out.println(i.getDepartments());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test department employee relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Departments> department_employee = getAllDep();
+        for (Departments i : department_employee) {
+            System.out.println(i.getDEPARTMENT_ID());
+            System.out.println(i.getManger());
+            System.out.println("-------------------------");
+        }
+
+        System.out.println("Test job job_history relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Jobs> job_jobHistory = getAllJobs();
+        for (Jobs i : job_jobHistory) {
+            System.out.println(i.getJOB_ID());
+            System.out.println(i.getHistories());
+            System.out.println("-------------------");
+        }
 
         System.out.println("Test department job_history relation");
         System.out.println("----------------------------------------------------------------------------");
-        List<Employee> department_jobHistory = getAllEmployees();
-        for (Employee i : department_jobHistory) {
+        List<Departments> department_jobHistory = getAllDep();
+        for (Departments i : department_jobHistory) {
+            System.out.println(i.getDEPARTMENT_ID());
+            System.out.println(i.getHistories());
+            System.out.println("-------------------");
+        }
+
+        System.out.println("Test employee job history relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Employee> Employee_jobHistory = getAllEmployees();
+        for (Employee i : Employee_jobHistory) {
             System.out.println(i.getEmployeeId());
             System.out.println(i.getHistories());
+            System.out.println("-------------------");
         }
 
         DBConfig.shutdown();
