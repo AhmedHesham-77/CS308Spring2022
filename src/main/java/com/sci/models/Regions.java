@@ -2,14 +2,8 @@ package com.sci.models;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
 import lombok.AllArgsConstructor;
@@ -33,4 +27,8 @@ public class Regions implements Serializable{
     private Integer Region_Id;
     @Column(name = "Region_Name")
     private String Region_Name;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "region_id",insertable = false,updatable = false)
+    private List<COUNTRIES> countries;
 }

@@ -40,7 +40,7 @@ public class HrApp {
         dbemployees.update(emp);
     }
 
-    public static void delete_employee(int emp_id){
+    public static void delete_employee(int emp_id) {
         dbemployees.delete(emp_id);
     }
     /*------------------------------------------------------------------------------*/
@@ -66,10 +66,10 @@ public class HrApp {
         dbcountries.update(country);
     }
 
-    public static void delete_country(String country_id){
+    public static void delete_country(String country_id) {
         dbcountries.delete(country_id);
     }
-/*------------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------------*/
 
     // Jobs table
     public static List<Jobs> getAllJobs() {
@@ -92,16 +92,16 @@ public class HrApp {
         dbjobs.update(job);
     }
 
-    public static void delete_job(String job_id){
+    public static void delete_job(String job_id) {
         dbjobs.delete(job_id);
     }
 
     /*------------------------------------------------------------------------------*/
 
     // Regions table
-    public static void getAllRegions() {
+    public static List<Regions> getAllRegions() {
         List<Regions> J = dbregions.get();
-        for (Regions i : J) System.out.println(i);
+        return J;
     }
 
     public static void getRegion(Integer id) {
@@ -118,7 +118,7 @@ public class HrApp {
         dbregions.update(reg);
     }
 
-    public static void delete_region(Integer id){
+    public static void delete_region(Integer id) {
         dbregions.delete(id);
     }
 
@@ -130,13 +130,13 @@ public class HrApp {
         for (Job_History i : J) System.out.println(i);
     }
 
-    public static void getJH(Integer id,String date) {
-        List<Job_History> JobHis = dbJH.get(id,date);
+    public static void getJH(Integer id, String date) {
+        List<Job_History> JobHis = dbJH.get(id, date);
         System.out.println(JobHis);
     }
 
     public static void insert_JH(Job_History job) {
-         dbJH.insert(job);
+        dbJH.insert(job);
         System.out.println(job.getEMPLOYEE_ID());
     }
 
@@ -144,11 +144,11 @@ public class HrApp {
         dbJH.update(job);
     }
 
-    public static void delete_JH(Integer id,String date){
-        dbJH.delete(id,date);
+    public static void delete_JH(Integer id, String date) {
+        dbJH.delete(id, date);
     }
 
-//    Locations table
+    //    Locations table
     public static void getAllLoc() {
         List<Locations> co = dblocations.get();
         for (Locations i : co) System.out.println(i);
@@ -169,9 +169,10 @@ public class HrApp {
     }
 
 
-    public static void delete_Loc(Integer Loc_id){
+    public static void delete_Loc(Integer Loc_id) {
         dblocations.delete(Loc_id);
     }
+
     //    Departments table
     public static List<Departments> getAllDep() {
         List<Departments> co = dbdep.get();
@@ -193,33 +194,42 @@ public class HrApp {
         dbdep.update(dep);
     }
 
-    public static void delete_dep(Integer dep_id){
+    public static void delete_dep(Integer dep_id) {
         dbdep.delete(dep_id);
     }
 
     public static void main(String[] args) {
 
-        //Test Employee Manager relation
-//        List<Employee> list = getAllEmployees();
-//        for (Employee i:list) {
-//            System.out.print(i.getManagerId());
-//            System.out.print(" ");
-//            System.out.println(i.getEmployee());
-//        }
+        System.out.println("Test Employee Manager relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Employee> list = getAllEmployees();
+        for (Employee i : list) {
+            System.out.println(i.getManagerId());
+            System.out.println(i.getEmployee());
+        }
 
+        System.out.println("Test Employee Department relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Departments> emp_dep = getAllDep();
+        for (Departments i : emp_dep) {
+            System.out.println(i.getDEPARTMENT_ID());
+            System.out.println(i.getEmployee());
+        }
 
-//        List<Departments> emp = getAllDep();
-//        for (Departments i:emp) {
-//            System.out.print(i.getDEPARTMENT_ID());
-//            System.out.print(" ");
-//            System.out.println(i.getEmployee());
-//        }
-
-        List<Jobs> emp = getAllJobs();
-        for (Jobs i:emp) {
-            System.out.print(i.getJOB_ID());
-            System.out.print(" ");
+        System.out.println("Test Employee Manager relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Jobs> emp_job = getAllJobs();
+        for (Jobs i : emp_job) {
+            System.out.println(i.getJOB_ID());
             System.out.println(i.getEmployees());
+        }
+
+        System.out.println("Test Region countries relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Regions> country_region = getAllRegions();
+        for (Regions i : country_region) {
+            System.out.println(i.getRegion_Id());
+            System.out.println(i.getCountries());
         }
 
 
