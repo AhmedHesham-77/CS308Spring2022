@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="CS308Spring2022" />
+        <module name="CS308_Second_Task" />
       </profile>
     </annotationProcessing>
   </component>
