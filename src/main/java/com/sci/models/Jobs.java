@@ -34,4 +34,8 @@ public class Jobs implements Serializable{
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "JOB_ID")
     private List<Employee> employees;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "JOB_ID")
+    private List<Job_History> histories;
 }

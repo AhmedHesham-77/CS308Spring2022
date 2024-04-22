@@ -256,7 +256,15 @@ public class HrApp {
             System.out.println(i.getEmployee());
         }
 
+        System.out.println("Test job job_history relation");
+        System.out.println("----------------------------------------------------------------------------");
+        List<Jobs> job_jobHistory = getAllJobs();
+        for (Jobs i : job_jobHistory) {
+            System.out.println(i.getJOB_ID());
+            System.out.println(i.getHistories());
+        }
 
+        
         DBConfig.shutdown();
     }
 }
