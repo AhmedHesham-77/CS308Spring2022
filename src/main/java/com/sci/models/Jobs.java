@@ -2,14 +2,8 @@ package com.sci.models;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Cacheable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
 import lombok.AllArgsConstructor;
@@ -36,4 +30,8 @@ public class Jobs implements Serializable{
     private Integer MIN_SALARY;
     @Column(name = "MAX_SALARY")
     private Integer MAX_SALARY;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "JOB_ID")
+    private List<Employee> employees;
 }

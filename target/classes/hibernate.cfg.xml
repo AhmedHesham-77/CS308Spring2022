@@ -29,10 +29,6 @@
     <mapping class="com.sci.models.Job_History"/>
     <mapping class="com.sci.models.Departments"/>
     <mapping class="com.sci.models.Locations"/>
-    <mapping class="com.sci.models.Actor"/>
-    <mapping class="com.sci.models.Address"/>
-    <mapping class="com.sci.models.City"/>
-    <mapping class="com.sci.models.Movie"/>
     <!--    <mapping class="package.ModelClassName" />-->
 
   </session-factory>

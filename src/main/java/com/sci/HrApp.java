@@ -2,9 +2,7 @@ package com.sci;
 
 import com.sci.dao.*;
 import com.sci.models.*;
-import org.hibernate.Session;
 
-import java.util.Date;
 import java.util.List;
 
 public class HrApp {
@@ -19,6 +17,33 @@ public class HrApp {
     public static DBDepartments dbdep = new DBDepartments();
 
     public static DBLocations dblocations = new DBLocations();
+
+
+    //Country table
+    public static List<Employee> getAllEmployees() {
+        List<Employee> co = dbemployees.get();
+//        for (Employee i : co) System.out.println(i);
+        return co;
+    }
+
+    public static void getEmployee(int id) {
+        Employee x = dbemployees.get(id);
+        System.out.println(x);
+    }
+
+    public static void insert_employee(Employee employee) {
+        int emp = dbemployees.insert(employee);
+        System.out.println(emp);
+    }
+
+    public static void update_employee(Employee emp) {
+        dbemployees.update(emp);
+    }
+
+    public static void delete_employee(int emp_id){
+        dbemployees.delete(emp_id);
+    }
+    /*------------------------------------------------------------------------------*/
 
 
     //Country table
@@ -47,9 +72,10 @@ public class HrApp {
 /*------------------------------------------------------------------------------*/
 
     // Jobs table
-    public static void getAllJobs() {
+    public static List<Jobs> getAllJobs() {
         List<Jobs> J = dbjobs.get();
-        for (Jobs i : J) System.out.println(i);
+//        for (Jobs i : J) System.out.println(i);
+        return J;
     }
 
     public static void getJob(String id) {
@@ -147,9 +173,10 @@ public class HrApp {
         dblocations.delete(Loc_id);
     }
     //    Departments table
-    public static void getAllDep() {
+    public static List<Departments> getAllDep() {
         List<Departments> co = dbdep.get();
-        for (Departments i : co) System.out.println(i);
+//        for (Departments i : co) System.out.println(i);
+        return co;
     }
 
     public static void getDep(Integer id) {
@@ -171,91 +198,30 @@ public class HrApp {
     }
 
     public static void main(String[] args) {
-        getAllCountries();
-        System.out.println("---------------------------------------");
-        getCountry("BE");
-        System.out.println("---------------------------------------");
-        COUNTRIES country = new COUNTRIES("ZA", "ZALABYA", 2);
-        insert_country(country);
-        System.out.println("---------------------------------------");
-        country.setCOUNTRY_NAME("ZALABYA_2");
-        update_country(country);
-        getAllCountries();
-        System.out.println("---------------------------------------");
-        delete_country("ZA");
-        getCountry("ZA");
-        System.out.println("---------------------------------------");
-        getAllJobs();
-        System.out.println("---------------------------------------");
-        getJob("AD_PRES");
-        System.out.println("---------------------------------------");
-        Jobs new_job = new Jobs("DE_MAN","Data Engineer Manager",50000,150000);
-        insert_job(new_job);
-        System.out.println("---------------------------------------");
-        new_job.setMIN_SALARY(75000);
-        update_job(new_job);
-        System.out.println("---------------------------------------");
-        delete_job("DE_MAN");
-        getJob("DE_MAN");
-        System.out.println("---------------------------------------");
 
-        getAllRegions();
-        System.out.println("---------------------------------------");
-        getRegion(2);
-        System.out.println("---------------------------------------");
-        Regions new_region = new Regions(5,"Egypt");
-        insert_region(new_region);
-        System.out.println("---------------------------------------");
-        new_region.setRegion_Name("Kwait");
-        update_region(new_region);
-        System.out.println("---------------------------------------");
-        delete_region(5);
-        getRegion(5);
-        System.out.println("---------------------------------------");
+        //Test Employee Manager relation
+//        List<Employee> list = getAllEmployees();
+//        for (Employee i:list) {
+//            System.out.print(i.getManagerId());
+//            System.out.print(" ");
+//            System.out.println(i.getEmployee());
+//        }
 
-        getAllJH();
-        System.out.println("---------------------------------------");
-        getJH(101,"1997-09-21");
-        System.out.println("---------------------------------------");
-        Job_History JH = new Job_History(150,"1990-05-05","1990-10-09","lala",150);
-        insert_JH(JH);
-        System.out.println("---------------------------------------");
-        JH.setEND_DATE("1990-10-05");
-        update_JH(JH);
-        getAllCountries();
-        System.out.println("---------------------------------------");
-        delete_JH(150,"1990-05-05");
-        getJH(150,"1990-05-05");
 
-        System.out.println("---------------------------------------");
+//        List<Departments> emp = getAllDep();
+//        for (Departments i:emp) {
+//            System.out.print(i.getDEPARTMENT_ID());
+//            System.out.print(" ");
+//            System.out.println(i.getEmployee());
+//        }
 
-        getAllDep();
-        System.out.println("---------------------------------------");
-        getDep(60);
-        System.out.println("---------------------------------------");
-        Departments d = new Departments();
-        insert_dep(d);
-        System.out.println("---------------------------------------");
-        d.setMANAGER_ID(500);
-        update_dep(d);
-        System.out.println("---------------------------------------");
-//        delete_dep(d.getDEPARTMENT_ID());
-        System.out.println("---------------------------------------");
+        List<Jobs> emp = getAllJobs();
+        for (Jobs i:emp) {
+            System.out.print(i.getJOB_ID());
+            System.out.print(" ");
+            System.out.println(i.getEmployees());
+        }
 
-        System.out.println("---------------------------------------");
-
-        getAllLoc();
-        System.out.println("---------------------------------------");
-        getLoc(1000);
-        System.out.println("---------------------------------------");
-        Locations l = new Locations();
-        insert_Loc(l);
-        System.out.println("---------------------------------------");
-        l.setCITY("cairo");
-        update_Loc(l);
-        System.out.println("---------------------------------------");
-//        delete_Loc(l.getLocation_id());
-        System.out.println("---------------------------------------");
 
         DBConfig.shutdown();
     }

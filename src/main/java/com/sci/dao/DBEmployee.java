@@ -11,11 +11,15 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import com.sci.models.Job_History;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 public class DBEmployee {
+
+
 
     public List<Employee> get() {
 
@@ -139,5 +143,4 @@ public class DBEmployee {
 
         return new ArrayList<>();
     }
-
 }
